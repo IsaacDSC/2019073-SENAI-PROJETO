@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
 
-<body>
+<body on>
     <div class="card">
         <div class="container mt-4">
             <h1>Firjan SENAI </h1>
@@ -21,15 +21,20 @@
             <div class="form">
                 <h2>Acionadores Virtuais</h2>
                 <ul>
-                    <li> <label for="">Aperte o botão Para Ligar</label></li>
-                    <li>
-                        <button onclick="ligar()" class="btn btn-success">Ligar</button>
-                    </li>
-                    <li><label for="">Aperte o botão Para Desligar</label></li>
-                    <li>
-                        <button onclick="desligar()" class="btn btn-danger">Desligar</button>
-                    </li>
+                    <div class="form-group">
+                        <li> <label for="">Aperte o botão Para Ligar</label></li>
+                        <li>
+                            <a href="?f=on"><button onclick="ligar()" class="btn btn-success">Ligar</button></a>
+                        </li>
+                    </div>
+                    <div class="form-group">
+                        <li><label for="">Aperte o botão Para Desligar</label></li>
+                        <li>
+                            <a href="?f=off"><button onclick="desligar()" class="btn btn-danger">Desligar</button></a>
+                        </li>
+                    </div>
                 </ul>
+
             </div>
         </div>
     </div>
