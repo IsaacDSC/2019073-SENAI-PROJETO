@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Automação 2019073</title>
+    <link rel="icon" href="imagem/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script defer src="js/fontawesome-all.min.js"></script>
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="d-flex">
+
+        <div class="content p-1">
+            <img src="./imagem/light-bulb-4514505_1920.jpg" class="img-fluid" alt="">
+            <div class="projeto" id="projeto">
+                <div class="list-group-item">
+                    <h1>Firjan SENAI</h1>
+                    <P><strong>Turma:</strong>2019073</P>
+                    <p><strong>Participantes:</strong>Isaac, Ruan, Alessander e Fernanda</p>
+                    <div class="card">
+                        <h3 class="mt-5">Projeto Automação Residencial</h3>
+
+                        <button onclick="ligar()" class="btn btn-success mt-5">Ligar</button>
+                        <button onclick="desligar()" class="btn btn-danger mt-5 mb-5">Desligar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        function ligar() {
+            fetch('http://192.168.1.51/on')
+        }
+        function desligar() {
+            fetch('http://192.168.1.51/off')
+        }
+    </script>
+</body>
+
+</html>
