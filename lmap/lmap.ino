@@ -41,7 +41,7 @@ void setup() {
   Serial.print("OK!");
   Serial.println("Conectado com Sucesso");
   Serial.println("Ip:");
-  Serial.prinln(WiFi.localIP());
+  Serial.println(WiFi.localIP());
 
   //Iniciando o servidor Web
   server.begin();
@@ -71,7 +71,7 @@ void loop() {
   client.flush();
 
   //Iniciando o buffer que ira conter a pagina HTML que sera enviada para o browser.
-  String HTML = "";
+  String buf = "";
 
   buf += "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n";
   buf += "<head> ";
@@ -122,8 +122,7 @@ void loop() {
   buf += "<a href='?f=off' class='btn btn-sea'>Desligar</a> ";
   buf += "</div> ";
   buf += "</div> ";
-  buf += "<div class='col twelve'> ";
-  buf += "<p align='center'><font size='5'>Infortr&ocirc;nica Para Zumbis</font></p> ";
+  buf += "<div class='col twelve'> ";  
   buf += "</div> ";
   buf += "</div> ";
   buf += "</body> ";
@@ -148,4 +147,3 @@ void loop() {
     client.stop();
   }
 }
-

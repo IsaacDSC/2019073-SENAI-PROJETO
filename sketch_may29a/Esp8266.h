@@ -1,6 +1,5 @@
 #include <ESP8266WiFi.h>
 
-
 const int pin = 13;
 
 struct WIFI {
@@ -33,13 +32,41 @@ struct WIFI {
       WiFiClient cliente = servidor.available();
       if(!cliente)
         continue;
-      String requisicao = cliente.readStringUntil('\r');
-      Serial.println(requisicao); 
-      cliente.flush();
-      cliente.println("HTTP/1.1 200 OK");
-      cliente.println("Access-Control-Allow-Origin: *");
-      cliente.println("Servidor de pé!");
+      String req = cliente.readStringUntil('\r');
+      Serial.println(req);
+      req.replace("GET /","");
+      req.replace(" HTTP/1.1","");
+
+
+    
+      //Analisando a requisicao recebida para decidir se liga ou desliga a lampada
+  if (req.indexOf("on") != -1)
+  {
+    digitalWrite(pin, LOW);
+  }
+  else if (req.indexOf("off") != -1)
+  {
+    digitalWrite(pin, HIGH);
+  }
+
       
+
+      
+      
+      /*
+       * int pino;
+      int acao;
+      if(requisicao.length()==4) {
+        pino = requisicao.substring(0,2).toInt();
+        acao = requisicao.substring(3,4).toInt();
+      }
+      else if(requisicao.length()==3) {
+        pino = requisicao.substring(0,1).toInt();
+        acao = requisicao.substring(2,3).toInt();
+      }
+      Serial.println("Pino: "+String(pino));
+      Serial.println("Acao: "+String(acao));
+      digitalWrite(pino,acao);*/
     }
   }
 };
